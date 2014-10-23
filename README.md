@@ -14,7 +14,7 @@ The program works on Chrome, Safari, and Firefox. Unfortunately, I was unable to
 
 ### Testing API
 
-The testing API does not quite work for the structures. At the current state of the API, each structure is a list of types that need to be in the code in sequential order, but does not take into account the nesting structures. To do this, I would have used a different walk function (I used acorn.walk.findNodeAfter), but should have used something like acorn.walk.findNodeAt and specified start and end positions. I was short on time, but hope I can figure this bug out over the weekend when I have the time!
+The testing API does not quite work for the structures (notice two of the tests in the testing suite will fail until this is fixed!). At the current state of the API, each structure is a list of types that need to be in the code in sequential order, but does not take into account the nesting structures. To do this, I would have used a different walk function (I used acorn.walk.findNodeAfter), but should have used something like acorn.walk.findNodeAt and specified start and end positions. I was short on time, but hope I can figure this bug out over the weekend when I have the time!
 
 By changing some of the base functions, I also think I would have been able to create better functionality and support for different types. Currently the API only supports a handful of elements (var, function, return, etc.).
 
