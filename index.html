@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Code Checker</title>
+        <link rel="stylesheet" href="third-party/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" media="screen" href="style.css">
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js'></script>
+        <script type='text/javascript' src='third-party/bootstrap/bootstrap.min.js'></script>
+        <script type='text/javascript' src='third-party/acorn.js'></script>
+        <script type='text/javascript' src='third-party/underscore.js'></script>
+        <script type='text/javascript' src='third-party/walk.js'></script>
+    </head>
+
+    <body>
+        <div id="editor"></div>
+        <div id="editor2"></div>
+        <div class="row" id="mainContainer">
+            <div class="col-lg-6">
+                <div>
+                    <p><b>Instructions: </b>Elements in the whitelist should be in your code. whereas elements in the blacklist should not be in the code. Structures are structures you should include - for example, if a structure is <span class="label label-primary structureElement">for</span><span class="label label-primary structureElement">&#10140;</span><span class="label label-primary structureElement">if</span>, you should have an if statement after a for loop. Turn on dynamic checking to continually check if your code meets these guidelines!</p>
+                </div>
+                <div id="requirements">
+                    <div id="whitelist">
+                        <b>Whitelist: </b>
+                    </div>
+                    <div id="blacklist">
+                        <b>Blacklist: </b>
+                    </div>
+                    <div id="structure">
+                        <b>Structure: </b>
+                    </div>
+                </div>
+                <div>
+                    <label id="dynamic">
+                        <input id="dynamic-checkbox" type="checkbox"> Dynamic checking
+                    </label>
+                </div>
+                <div>
+                    <button id="check" type="button" class="btn btn-warning">Check my code!</button>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group text-center">
+                        <label class="control-label">Add a new or add to an existing structure</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="structureNumber" class="col-lg-3 control-label">Structure</label>
+                        <div class="col-lg-9">
+                            <select id="structureNumber" class="form-control">
+                                <option>1</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="structureElem" class="col-lg-3 control-label">  Element</label>
+                        <div class="col-lg-9">
+                            <select id="structureElem" class="form-control">
+                                <option>for</option>
+                                <option>return</option>
+                                <option>var</option>
+                                <option>if</option>
+                                <option>function</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button id="structureSubmit" class="btn btn-primary">Add Structure!</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group text-center">
+                        <label class="control-label">Add to the whitelist or blacklist</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="list" class="col-lg-3 control-label">List</label>
+                        <div class="col-lg-9">
+                            <select id="list" class="form-control">
+                                <option>whitelist</option>
+                                <option>blacklist</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="elem" class="col-lg-3 control-label">Element</label>
+                        <div class="col-lg-9">
+                            <select id="elem" class="form-control">
+                                <option>for</option>
+                                <option>return</option>
+                                <option>var</option>
+                                <option>if</option>
+                                <option>function</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button id="submit" class="btn btn-primary">Add Element!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="third-party/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/monokai");
+            editor.getSession().setMode("ace/mode/javascript");
+        </script>
+        <script type='text/javascript' src='javascript/model.js'></script>
+        <script type='text/javascript' src='javascript/main.js'></script>
+    </body>
+</html>
